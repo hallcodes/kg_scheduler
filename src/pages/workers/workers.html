@@ -1,0 +1,75 @@
+<!--
+  Generated template for the WorkersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Workers</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="createNew">
+    <ion-item>
+      <ion-label position="fixed">Name</ion-label>
+      <ion-input [(ngModel)]="newWorker.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed">Email</ion-label>
+      <ion-input [(ngModel)]="newWorker.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed">Address</ion-label>
+      <ion-input [(ngModel)]="newWorker.address1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed">Telephone</ion-label>
+      <ion-input [(ngModel)]="newWorker.telephoneNo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed">Role</ion-label>
+      <ion-input [(ngModel)]="newWorker.role"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed">City</ion-label>
+      <ion-input [(ngModel)]="newWorker.location.city"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed">Country</ion-label>
+      <ion-input [(ngModel)]="newWorker.location.country"></ion-input>
+    </ion-item>
+    <ion-item color="primary" (click)="addWorker()">Add Worker</ion-item>
+    <ion-item color="primary" (click)="loadWorkers()">Show Workers</ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="workers">
+    <ion-grid>
+      <ion-row *ngFor="let worker of workers">
+        <ion-col>
+            {{ worker.name }} - {{ worker.role }}, {{ worker.location.city}}
+            <ion-icon  (click)="updateWorker(worker)" color="green" name="checkmark"></ion-icon>
+            <ion-icon  (click)="deleteWorker(worker)" color="danger" name="trash"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+  <ion-list *ngIf="!createNew">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item color="primary" (click)="CreateNewWorker()">New Worker</ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+  
+</ion-content>

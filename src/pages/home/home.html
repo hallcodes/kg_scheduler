@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+    <span class="todaysDate"><strong>Today's Date: </strong> {{TodaysDate}}</span>
+  <ion-grid *ngFor="let location of locations">
+    <ion-row>
+      <ion-col width-50 offset-25>
+        <h3 class="location">{{location.city}}, {{location.country}}</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngFor="let item of location.weather">
+        {{item.day}}
+        <img class="icon" src="http://openweathermap.org/img/w/{{item.forecast.icon}}.png" alt=""
+          title="{{item.forecast.description}}">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
