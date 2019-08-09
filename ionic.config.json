@@ -1,0 +1,7 @@
+{
+  "name": "kg_scheduler",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
