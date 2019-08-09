@@ -46,11 +46,16 @@
       <ion-label position="fixed">Country</ion-label>
       <ion-input [(ngModel)]="newWorker.location.country"></ion-input>
     </ion-item>
+  </ion-list>
+<ion-list *ngIf="createNew">
     <ion-item color="primary" (click)="addWorker()">Add Worker</ion-item>
-    <ion-item color="primary" (click)="loadWorkers()">Show Workers</ion-item>
+    <ion-item>
+      <ion-icon  (click)="loadWorkers()" color="secondary" name="eye">Workers List</ion-icon>
+    </ion-item>
+    
   </ion-list>
 
-  <ion-list *ngIf="workers">
+  <ion-list *ngIf="workers && !createNew">
     <ion-grid>
       <ion-row *ngFor="let worker of workers">
         <ion-col>
